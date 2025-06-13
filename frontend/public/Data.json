@@ -1,0 +1,46 @@
+{
+  "recipes": [
+    {
+      "image": "/public/images/spaghetti.jpg",
+      "name": "Spaghetti Bolognese",
+      "preparationTime": "30 minutes",
+      "ingredients": "Spaghetti, ground beef, tomato sauce, onions, garlic, olive oil, salt, pepper",
+      "process": "Boil spaghetti. Cook ground beef with onions and garlic. Add tomato sauce and simmer. Mix with spaghetti and serve hot."
+    },
+    {
+      "image": "/public/images/Pancakes.jpeg",
+      "name": "Classic Pancakes",
+      "preparationTime": "20 minutes",
+      "ingredients": "Flour, eggs, milk, baking powder, sugar, butter, salt",
+      "process": "Mix all ingredients into a smooth batter. Pour on a hot griddle and cook until golden on both sides. Serve with syrup."
+    },
+    {
+      "image": "/public/images/chickenCurry.jpeg",
+      "name": "Chicken Curry",
+      "preparationTime": "45 minutes",
+      "ingredients": "Chicken, onions, tomatoes, garlic, ginger, spices, oil, salt",
+      "process": "Sauté onions, garlic, and ginger. Add spices and chicken. Cook until browned. Add tomatoes and simmer until chicken is tender."
+    },
+    {
+      "image": "/public/images/FreshVegetableSalad.jpg",
+      "name": "Fresh Vegetable Salad",
+      "preparationTime": "10 minutes",
+      "ingredients": "Lettuce, tomatoes, cucumbers, carrots, olive oil, lemon juice, salt, pepper",
+      "process": "Chop all vegetables. Mix in a bowl. Drizzle with olive oil and lemon juice. Season with salt and pepper."
+    },
+    {
+      "image": "/public/images/VegetableFriedRice.jpeg",
+      "name": "Vegetable Fried Rice",
+      "preparationTime": "25 minutes",
+      "ingredients": "Cooked rice, carrots, peas, bell peppers, soy sauce, garlic, oil",
+      "process": "Heat oil, sauté garlic and vegetables. Add rice and soy sauce. Stir-fry for a few minutes and serve hot."
+    },
+    {
+      "image": "/public/images/ChocolateCake.jpg",
+      "name": "Chocolate Cake",
+      "preparationTime": "1 hour",
+      "ingredients": "Flour, cocoa powder, eggs, sugar, butter, baking powder, milk",
+      "process": "Mix dry and wet ingredients separately. Combine and pour into a greased pan. Bake at 180°C for 35-40 minutes."
+    }
+  ]
+}
