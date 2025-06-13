@@ -1,0 +1,34 @@
+.signUpContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    padding: 2em;
+    
+}
+.signUpCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    width: 400px;
+    height: 300px;
+    justify-content: center;
+    border-radius: 8px;
+}
+    
+.signUpHeader {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    border-radius: 8px;
+    
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
