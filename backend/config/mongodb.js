@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWD}@${process.env.MONGO_DB_ENDPOINT}/${process.env.DATABASE_NAME}`
+const MONGO_URI = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWD}@${process.env.MONGO_DB_ENDPOINT}/${process.env.MONGO_DB_DATABASE}`
 
-//Connect to database
+
 const mongoConnection = async () => {
     try {
         await mongoose.connect(MONGO_URI);
