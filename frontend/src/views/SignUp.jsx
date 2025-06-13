@@ -1,14 +1,16 @@
 import './SignUp.css';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate();
+    
+    
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(email, password);
+        navigate('/Login');
     };
 
     return (

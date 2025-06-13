@@ -34,13 +34,16 @@ export default function RecipesView(props) {
     const handleSignUp = () => {
         navigate('/SignUp');
     }
+    const handleMyRecipes = () =>{
+        navigate('/MyWorkView');
+    }
 
     return (
         <>
             <div className='navHeader'>
                 <h1>Bite Book</h1>
                 <input className="search" type="text" placeholder='search for recipe'></input>
-                <button className='headButton'>My Recipes</button>
+                <button className='headButton' onClick={handleMyRecipes}>My Recipes</button>
                 <button onClick ={handleLogin} className='headButton'>LogIn</button>
                 <button onClick  = {handleSignUp} className='headButton'>SignUp</button>
             </div>
