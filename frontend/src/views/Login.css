@@ -62,7 +62,7 @@ form button{
     font-size: 1em;
     cursor: pointer;
     width: 80px;
-    margin-left: 200px;
+    margin-left: 175px;
 }
 form button:hover{
     background-color: #0056b3;

@@ -40,6 +40,7 @@ export default function RecipesView() {
     return (
         <>
             <div className='navHeader'>
+                <img className='logo' src="./public/images/logo.jpg" alt="logo" />
                 <h1>Bite Book</h1>
                 <div className='searchContainer'>
                     <input className="search" type="text" placeholder='search for recipe' />
