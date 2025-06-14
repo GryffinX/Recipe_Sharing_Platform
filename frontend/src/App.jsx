@@ -13,7 +13,7 @@ function App() {
     <>
     <Router>
                 <Routes>
-                    <Route path='/' element={<RecipesView source = {"sample"}/>} />
+                    <Route path='/' element={<RecipesView/>} />
                     <Route path='/SignUp' element={<SignUp />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/MyWorkView' element={<MyWorkView/>}></Route>
