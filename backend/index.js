@@ -3,6 +3,7 @@ const express=require('express');
 const mongoConnection = require('./config/mongodb');
 const recipeRouter= require('./routes/recipe');
 const authRouter = require('./routes/auth');
+const {authenticate}= require('./middleware/authMiddleware');
 
 
 mongoConnection();
