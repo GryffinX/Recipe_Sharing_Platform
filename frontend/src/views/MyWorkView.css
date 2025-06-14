@@ -22,6 +22,52 @@ body {
 
 .createRecipeButton {
     background-color: #babaca;
+    font-size: 1em;
     border-radius: 8px;
     border: none;
+    padding: 0.5em;
+}
+
+.modalOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent { 
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+    gap: 1em;
+}
+
+.modalButton {
+    background-color: lightblue;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5em;
+}
+
+.noRecipes {
+    width: 70%;
+    display: flex;
+    font-size: 2em;
+    background-color:#ffdcdc;
+    justify-content: center;
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-top: 2em;
 }
