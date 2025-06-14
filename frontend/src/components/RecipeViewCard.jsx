@@ -1,6 +1,5 @@
 import "./RecipeViewCard.css";
 
-
 export default function RecipeViewCard(props){
     return (
         <>

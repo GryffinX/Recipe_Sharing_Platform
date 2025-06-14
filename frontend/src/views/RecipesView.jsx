@@ -40,12 +40,14 @@ export default function RecipesView() {
     return (
         <>
             <div className='navHeader'>
+                <img className='logo' src="./public/images/logo.jpg" alt="logo" />
                 <h1>Bite Book</h1>
                 <div className='searchContainer'>
                     <input className="search" type="text" placeholder='search for recipe' />
-                    <button className='searchButton'><img className='searchButton' src="./public/images/search.jpg" alt="search" /></button>
+                    <button className='searchButton'><img className='searchButton' src="./public/images/search.jpg" alt="search" onClick={() => {  }} /></button>
                 </div>
                 <button className='headButton' onClick={handleMyRecipes}>My Recipes</button>
+
                 <button onClick={handleLogin} className='headButton'>LogIn</button>
                 <button onClick={handleSignUp} className='headButton'>SignUp</button>
             </div>
