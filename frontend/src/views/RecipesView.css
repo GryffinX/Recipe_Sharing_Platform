@@ -11,6 +11,9 @@
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+.navHeader:hover{
+    background-color: #FFCBAA;
+}
 .recipeContainer {
     padding-top: 80px;
     display: flex;
@@ -22,10 +25,14 @@
     gap: 20px;
 }
 .headButton {
-    width: 60px;
+    width: 100px;
     height: 40px;
     border-radius: 8px;
     background-color: #FFDCDC;
+}
+.headButton:hover {
+    background-color: #FFB6C1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 .searchContainer{
     width: 200px;
@@ -36,6 +43,11 @@
     background-color: white;
     display: flex;
     flex-direction: row;
+}
+.searchContainer:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border: black 1px solid;
+
 }
 .searchButton {
     width: 30px;

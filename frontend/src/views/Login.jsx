@@ -1,18 +1,34 @@
-import './Login.css';
+import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:3000/auth/login", { email, password })
+            .then(async (res) => {
+                if(res?.data?.message === "Successfully logged in"){
+                    alert("Login Successful");
+                    navigate('/');
+                }
+                else{
+                    alert(data?.message);                }
+            });
+    };
+
     return (
 
         <div className="loginBody">
             <div className="loginContainer">
                 <div className="loginCard">
                     <div className="loginHeader">Login</div>
-                    <form className="form"  style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
+                    <form className="form"  onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
                         <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
                         <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                         <button type="submit">Login</button>
