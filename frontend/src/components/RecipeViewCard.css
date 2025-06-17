@@ -28,6 +28,9 @@
   justify-content: center;
   padding-top: 8px;
 }
+.viewImage img:hover{
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 .viewButton{
   position: absolute;
   top: 20px;
@@ -39,6 +42,10 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+.viewButton:hover{
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  background-color: lightsalmon;
 }
 
 .viewBody{
@@ -69,6 +76,10 @@
   margin: 10px 0;
   text-align: center;
 }
+.viewHead:hover{
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 .viewProcess{
   font-size: 1.5em;
   color: black;

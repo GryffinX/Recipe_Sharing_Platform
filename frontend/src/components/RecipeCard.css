@@ -26,6 +26,9 @@
   border-radius: 15px;
   padding-top: 8px;
 }
+.cardImage img:hover{
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 
 .cardName {
   font-size: 1.2em;
@@ -33,7 +36,6 @@
   margin: 10px 0;
   text-align: center;
 }
-
 .cardPrepTime {
   font-size: 1em;
   color: #555;
