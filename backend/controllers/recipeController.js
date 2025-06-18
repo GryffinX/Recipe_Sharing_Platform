@@ -84,6 +84,20 @@ exports.getRecipeByName = async (req, res) => {
     }
 };
 
+exports.getUserRecipes = async (req, res) => {
+    try {
+        const userID= req.user.id;
+        const myRecipes= await Recipes.find({userID: userID});
+        if (!myRecipes) {
+            return res.status(400).send({error: "Error fetching recipes"});
+        }
+        return res.status(200).send({recipes: myRecipes});
+    } catch (error) {
+        console.error("Error fetching user recipes:", error.message);
+        return res.status(500).send({ error: "Error fetching user recipes" });
+    }
+}
+
 exports.createRecipe = async (req, res) => {
     let { dishName, timeTaken, ingredients, process } = req.body;
 
