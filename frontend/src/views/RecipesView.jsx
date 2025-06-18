@@ -12,6 +12,8 @@ export default function RecipesView() {
     const navigate = useNavigate();
     const [Recipes, setRecipes] = useState([]);
     const [currentRecipe, setCurrentRecipe] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [loading, setLoading] = false;
 
 
     useEffect(() => {
