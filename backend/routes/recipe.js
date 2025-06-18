@@ -6,6 +6,8 @@ recipeRouter.get('/', recipeController.getAllRecipes);
 
 recipeRouter.get('/search', recipeController.getRecipeByName);
 
+recipeRouter.get('/my', authenticate, recipeController.getUserRecipes);
+
 recipeRouter.post('/', authenticate, recipeController.createRecipe);
 
 recipeRouter.patch('/:id', authenticate, recipeController.editRecipe);
