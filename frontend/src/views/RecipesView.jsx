@@ -13,7 +13,8 @@ export default function RecipesView() {
     const [Recipes, setRecipes] = useState([]);
     const [currentRecipe, setCurrentRecipe] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
-    const [loading, setLoading] = false;
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
+
 
 
     useEffect(() => {
@@ -24,6 +25,15 @@ export default function RecipesView() {
             })
 
     }, [])
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const results = Recipes.filter((recipe) =>
+            recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setFilteredRecipes(results);
+    };
+
 
     const handleLogin = () => {
         navigate('/Login');
@@ -45,8 +55,19 @@ export default function RecipesView() {
                 <img className='logo' src="./public/images/logo.jpg" alt="logo" />
                 <h1>Bite Book</h1>
                 <div className='searchContainer'>
-                    <input className="search" type="text" placeholder='search for recipe' />
-                    <button className='searchButton'><img className='searchButton' src="./public/images/search.jpg" alt="search" onClick={() => {  }} /></button>
+                    <input
+                        className="search"
+                        type="text"
+                        placeholder='Search for recipe'
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+
+                    <button className='searchButton' onClick={handleSearch}>
+                        <img className='searchButton' src="./public/images/search.jpg" alt="search" />
+                    </button>
+
+
                 </div>
                 <button className='headButton' onClick={handleMyRecipes}>My Recipes</button>
 
@@ -55,11 +76,22 @@ export default function RecipesView() {
             </div>
             <div className='recipeContainer'>
                 {
-                    Recipes ? Recipes.map((item, index) => (
-                        <RecipeCard key={index} recipe={item} onView={handleViewRecipe} />
+                    searchQuery ? (
+                        filteredRecipes.length > 0 ? (
+                            filteredRecipes.map((item, index) => (
+                                <RecipeCard key={index} recipe={item} onView={handleViewRecipe} />
+                            ))
+                        ) : (
+                            <p className="notFound">No recipes found.</p>
+                        )
+                    ) : (
+                        Recipes.map((item, index) => (
+                            <RecipeCard key={index} recipe={item} onView={handleViewRecipe} />
+                        ))
                     )
-                    ) : <> </>
                 }
+
+
 
             </div>
             {currentRecipe && <RecipeViewCard key={currentRecipe.name} recipe={currentRecipe} onBack={() => setCurrentRecipe(null)} />}

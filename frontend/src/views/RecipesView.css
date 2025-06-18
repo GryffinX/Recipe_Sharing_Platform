@@ -80,3 +80,9 @@
     outline: none;
     font-size: 14px;
 }
+.notFound {
+  text-align: center;
+  font-size: 1.2rem;
+  color: gray;
+  margin-top: 2rem;
+}
