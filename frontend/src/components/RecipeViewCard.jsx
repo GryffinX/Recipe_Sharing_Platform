@@ -1,21 +1,29 @@
 import "./RecipeViewCard.css";
 
-export default function RecipeViewCard(props){
+export default function RecipeViewCard(props) {
+    const { dishName, ingredients, process, timeTaken } = props.recipe;
+
     return (
-        <>
-            <div className="viewContainer">
-                <button className="viewButton" onClick={()=>{props.onBack()}}>Back</button>
-                <div className="viewImage">
-                    <img src={props.recipe.image} alt={props.recipe.name} />
-                </div>
-                <div className="viewBody">
-                    <h4 className="viewName">{props.recipe.name}</h4>
-                    <p className="viewHead">Ingredients Used Are:</p>
-                    <p className="viewIngredients">{props.recipe.ingredients}</p>
-                    <p className="viewHead">Process :</p>
-                    <p className="viewProcess">{props.recipe.process}</p>
-                </div>
+        <div className="viewContainer">
+            <button className="viewButton" onClick={() => { props.onBack() }}>Back</button>
+            <div className="viewBody">
+                <h4 className="viewName">{dishName}</h4>
+                <p className="viewHead">Preparation Time: {timeTaken}</p>
+                <p className="viewHead">Ingredients Used Are:</p>
+                <ul className="viewIngredients">
+                    {Array.isArray(ingredients)
+                        ? ingredients.map((ing, i) => <li key={i}>{ing}</li>)
+                        : <li>{ingredients}</li>
+                    }
+                </ul>
+                <p className="viewHead">Process :</p>
+                <ol className="viewProcess">
+                    {Array.isArray(process)
+                        ? process.map((step, i) => <li key={i}>{step}</li>)
+                        : <li>{process}</li>
+                    }
+                </ol>
             </div>
-        </>
-    )
+        </div>
+    );
 }
