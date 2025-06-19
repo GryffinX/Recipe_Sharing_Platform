@@ -14,6 +14,7 @@ export default function RecipesView() {
     const [currentRecipe, setCurrentRecipe] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredRecipes, setFilteredRecipes] = useState([]);
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
 
 
 
@@ -23,6 +24,9 @@ export default function RecipesView() {
                 const data = await res.json();
                 setRecipes(data.recipes);
             })
+        if (localStorage.getItem("user-access-token")) {
+            setUserLoggedIn(true);
+        }
 
     }, [])
 
@@ -46,8 +50,19 @@ export default function RecipesView() {
         navigate('/SignUp');
     }
     const handleMyRecipes = () => {
-        navigate('/MyWorkView');
+        if(userLoggedIn){
+           navigate('/MyWorkView');
+        }
+        else{
+            navigate('/Login');
+        }
+        
     }
+    const handleLogOut = () => {
+        localStorage.removeItem("user-access-token");
+        setUserLoggedIn(false);
+    }
+    
 
     return (
         <>
@@ -71,8 +86,9 @@ export default function RecipesView() {
                 </div>
                 <button className='headButton' onClick={handleMyRecipes}>My Recipes</button>
 
-                <button onClick={handleLogin} className='headButton'>LogIn</button>
-                <button onClick={handleSignUp} className='headButton'>SignUp</button>
+                {!userLoggedIn && <button onClick={handleLogin} className='headButton'>LogIn</button>}
+                {!userLoggedIn && <button onClick={handleSignUp} className='headButton'>SignUp</button>}
+                {userLoggedIn && <button onClick={handleLogOut} className='headButton'>LogOut</button>}
             </div>
             <div className='recipeContainer'>
                 {

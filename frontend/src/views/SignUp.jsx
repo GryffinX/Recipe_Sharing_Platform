@@ -19,8 +19,13 @@ export default function SignUp() {
                     navigate('/Login');
                 }
                 else{
-                    alert(res?.data?.message);
+                    alert("SignUp failed , please try again!");
                 }
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("SignUp failed , please try again!");
+                
             });
     };
 
