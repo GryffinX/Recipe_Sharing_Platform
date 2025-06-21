@@ -19,11 +19,23 @@ export default function RecipesView() {
 
 
     useEffect(() => {
+        let tempRecipes = [];
         fetch("/public/Data.json")
             .then(async (res) => {
                 const data = await res.json();
-                setRecipes(data.recipes);
+                data.recipes.forEach((element) => {
+                    tempRecipes.push({ id: element.id, name: element.name, preparationTime: element.preparationTime, ingredients: element.ingredients, process: element.process, image: element.image })
+                });
+                fetch("http://localhost:3000/recipes")
+                    .then(async (res) => {
+                        const data = await res.json();
+                        data.recipes.forEach((element) => {
+                            tempRecipes.push({ id: element._id, name: element.dishName, preparationTime: element.timeTaken, ingredients: "", process: "", image: "/public/images/Dummy.jpeg" })
+                        });
+                        setRecipes(tempRecipes);
+                    })
             })
+
         if (localStorage.getItem("user-access-token")) {
             setUserLoggedIn(true);
         }
@@ -50,19 +62,19 @@ export default function RecipesView() {
         navigate('/SignUp');
     }
     const handleMyRecipes = () => {
-        if(userLoggedIn){
-           navigate('/MyWorkView');
+        if (userLoggedIn) {
+            navigate('/MyWorkView');
         }
-        else{
+        else {
             navigate('/Login');
         }
-        
+
     }
     const handleLogOut = () => {
         localStorage.removeItem("user-access-token");
         setUserLoggedIn(false);
     }
-    
+
 
     return (
         <>

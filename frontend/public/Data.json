@@ -1,6 +1,7 @@
 {
   "recipes": [
     {
+      "id" : "1",
       "image": "/public/images/spaghetti.jpg",
       "name": "Spaghetti Bolognese",
       "preparationTime": "30 minutes",
@@ -8,6 +9,7 @@
       "process": "Boil spaghetti. Cook ground beef with onions and garlic. Add tomato sauce and simmer. Mix with spaghetti and serve hot."
     },
     {
+      "id" : "2",
       "image": "/public/images/Pancakes.jpeg",
       "name": "Classic Pancakes",
       "preparationTime": "20 minutes",
@@ -15,6 +17,7 @@
       "process": "Mix all ingredients into a smooth batter. Pour on a hot griddle and cook until golden on both sides. Serve with syrup."
     },
     {
+      "id" : "3",
       "image": "/public/images/chickenCurry.jpeg",
       "name": "Chicken Curry",
       "preparationTime": "45 minutes",
@@ -22,6 +25,7 @@
       "process": "Sauté onions, garlic, and ginger. Add spices and chicken. Cook until browned. Add tomatoes and simmer until chicken is tender."
     },
     {
+      "id" : "4",
       "image": "/public/images/FreshVegetableSalad.jpg",
       "name": "Fresh Vegetable Salad",
       "preparationTime": "10 minutes",
@@ -29,6 +33,7 @@
       "process": "Chop all vegetables. Mix in a bowl. Drizzle with olive oil and lemon juice. Season with salt and pepper."
     },
     {
+      "id" : "5",
       "image": "/public/images/VegetableFriedRice.jpeg",
       "name": "Vegetable Fried Rice",
       "preparationTime": "25 minutes",
@@ -36,6 +41,7 @@
       "process": "Heat oil, sauté garlic and vegetables. Add rice and soy sauce. Stir-fry for a few minutes and serve hot."
     },
     {
+      "id" : "6",
       "image": "/public/images/ChocolateCake.jpg",
       "name": "Chocolate Cake",
       "preparationTime": "1 hour",
