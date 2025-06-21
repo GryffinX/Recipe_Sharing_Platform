@@ -27,7 +27,7 @@ function parseRecipeFields({ ingredients, process }) {
             .filter(i => i.length > 0);
     }
     if (typeof process === 'string') {
-        parsedProcess = process.split('.')
+        parsedProcess = process.split(',')
             .map(step => step.trim())
             .filter(step => step.length > 0);
     }
@@ -101,7 +101,7 @@ exports.getUserRecipes = async (req, res) => {
 exports.createRecipe = async (req, res) => {
     let { dishName, timeTaken, ingredients, process } = req.body;
 
-    const { parsedIngredients, parsedProcess } = parseRecipeFields({ ingredients, process });
+    const { parsedIngredients, parsedProcess } = parseRecipeFields({ ingredients, process }) 
 
     if (!validateRecipeInput({ dishName, timeTaken, ingredients: parsedIngredients, process: parsedProcess })) {
         return res.status(400).send({ error: "All fields (dishName, timeTaken, ingredients, process) are required and must be valid." });
@@ -141,7 +141,7 @@ exports.editRecipe = async (req, res) => {
     }
     if (process !== undefined) {
         updateData.process = typeof process === 'string'
-            ? process.split('.').map(step => step.trim()).filter(step => step.length > 0)
+            ? process.split(',').map(step => step.trim()).filter(step => step.length > 0)
             : process;
     }
 

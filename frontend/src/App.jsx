@@ -5,7 +5,9 @@ import RecipesView from './views/RecipesView';
 import Login from './views/Login';
 import SignUp from './views/SignUp';
 import MyWorkView from './views/MyWorkView';
+import axios from 'axios';
 
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 function App() {
   
