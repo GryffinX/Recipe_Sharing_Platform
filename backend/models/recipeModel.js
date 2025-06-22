@@ -21,8 +21,8 @@ const recipeSchema= new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "users",
         required: true
-    }
-})
+    },
+});
 
 const Recipes= mongoose.model('recipes', recipeSchema);
 

@@ -2,10 +2,11 @@ import './MyWorkView.css'
 import MyWorkCard from '../components/MyWorkCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyWorkView() {
-    //  const navigate = useNavigate();
+    
+    const navigate = useNavigate();
     const [recipe, setRecipe] = useState([])
     const [recipeName, setRecipeName] = useState('')
     const [recipeTime, setRecipeTime] = useState('')
@@ -16,16 +17,26 @@ export default function MyWorkView() {
     const [currentRecipe, setCurrentRecipe] = useState(null)
 
     useEffect(() => {
-        axios.get('/recipes')
-            .then(res => {
+        const getSpecificRecipes = async () => {
+            try {
+                const token = localStorage.getItem("user-access-token");
+
+                const config = {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                };
+                const res = await axios.get('/recipes', config);
+
                 if (res?.data) {
                     setRecipe(res?.data?.recipes)
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Failed to show recipes: ', error.message);
-            })
-    }, [])
+            }
+        }
+        getSpecificRecipes();
+    }, []);
 
     const handleCreate = () => {
         setModalType('create');
@@ -92,41 +103,46 @@ export default function MyWorkView() {
                 setCurrentRecipe(null);
             } else {
                 const res = await axios.post('/recipes', payload, config);
-                const newRecipe = res.data.recipe;
+                console.log('New recipe response:', res.data);
+                const newRecipe = res.data.newRecipe;
                 setRecipe(prev => [...prev, newRecipe])
             }
 
-            setShowModal(false);
+            
             setRecipeName('');
             setRecipeTime('');
             setRecipeIngredients('');
             setRecipeSteps('');
             setCurrentRecipe(null);
+            setShowModal(false);
 
         } catch (error) {
             console.error('Submit failed: ', error);
         }
     }
 
-    // const handleRecipes = () => {
-    //     navigate('/');
-    // }
+    const handleRecipes = () => {
+        navigate('/');
+    }
 
 
     return (
         <>
             <div id="ancestorContainer" className="ancestorContainer">
-                {/* <button className='headButton' onClick={handleRecipes}>Back</button> */}
+                 
 
                 <div id="header" className='header'>
 
                     My Work
                 </div>
+                <button className='BackButton' onClick={handleRecipes}>Back</button>
                 <button onClick={handleCreate} className='createRecipeButton'>Create Recipe</button>
 
+
                 {Array.isArray(recipe) && recipe.length > 0 ? (
-                    recipe?.map((recipe, index) => (
-                        <MyWorkCard key={index} recipe={recipe} onEdit={handleEdit} onDelete={handleDelete} />
+                    
+                    recipe?.map((recipe) => (
+                        <MyWorkCard key={recipe._id} recipe={recipe} onEdit={handleEdit} onDelete={handleDelete} />
                     ))
                 ) : (
                     <div id='noRecipes' className='noRecipes'>No Recipes yet created!</div>

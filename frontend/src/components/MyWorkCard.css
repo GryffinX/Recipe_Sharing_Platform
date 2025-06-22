@@ -10,10 +10,26 @@
     background-color: #eef8ff;
 }
 
+.recipeImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30em;
+    
+    border-radius: 10px;
+} 
+
 .cardActions {
     display: flex;
     gap: 1em;
     justify-content: flex-end;
+}
+
+.actionButton:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: pink;
+    cursor: pointer;
 }
 
 .actionButton {
@@ -31,19 +47,6 @@
     align-items: center;
     justify-content: center;
 }
-
-/* .viewButton {
-    position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 50px;
-  height: 30px;
-  background-color: palevioletred;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-} */
 
 .recipeDetails {
     margin-top: 10px;

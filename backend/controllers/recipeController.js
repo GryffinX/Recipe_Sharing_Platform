@@ -113,7 +113,7 @@ exports.createRecipe = async (req, res) => {
             timeTaken,
             ingredients: parsedIngredients,
             process: parsedProcess,
-            userID: req.user.id
+            userID: req.user.id,
         });
         const savedRecipe = await newRecipe.save();
         return res.status(201).send({ newRecipe: savedRecipe });
