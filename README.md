@@ -1,12 +1,15 @@
 
-<p align="center"> TEAM_ID: nH5bh4-kyTIS37VlTtAoe </p>
+<div align="center">
 
-
-<p align="center">
-  <img src="https://img.icons8.com/color/96/000000/chef-hat.png" alt="Recipe Sharing Platform Logo" width="120"/>
-</p>
+<img src="https://img.icons8.com/color/96/000000/chef-hat.png" width="100" alt="Chef Hat Logo"/>
 
 # Recipe Sharing Platform
+
+*Cook, Share, Inspire — Your Culinary Community Awaits*
+
+**TEAM_ID:** `nH5bh4-kyTIS37VlTtAoe`
+
+</div>
 
 A modern full stack web application for sharing, discovering, and managing recipes. This platform enables users to create accounts, post their own recipes, explore dishes from others, and interact with a vibrant cooking community.
 
@@ -51,6 +54,83 @@ This project streamlines recipe sharing and management with a focus on security,
 
 ---
 
+## Features
+
+- **User Authentication & Authorization:**  
+  Secure registration, login, and protected routes using JWT-based authentication.
+
+- **Recipe Management:**  
+  Create, view, edit, and delete your own recipes with support for ingredients and preparation steps.
+
+- **Recipe Search:**  
+  Find recipes easily by searching dish names with partial and case-insensitive matching.
+
+- **Personal Recipe Collection:**  
+  View all recipes you have created in your personal dashboard.
+
+- **Pagination:**  
+  Browse recipes efficiently with paginated results for large collections.
+
+- **RESTful API:**  
+  Well-structured endpoints for easy integration and scalability.
+
+- **Robust Input Validation:**  
+  Ensures all recipe data is complete and valid before submission.
+
+- **Error Handling:**  
+  Clear and consistent error responses for invalid requests or server issues.
+
+---
+
+## Architecture
+
+The Recipe Sharing Platform follows a clean separation of concerns with a modern full stack architecture:
+
+[ Client (React + Vite) ]
+|
+| (HTTP Requests via Axios)
+v
+[ Backend API (Node.js + Express) ]
+|
+| (Mongoose ODM)
+v
+[ MongoDB Database ]
+
+---
+
+## Tech Stack
+
+The Recipe Sharing Platform is built using a modern, modular stack for scalability and maintainability:
+
+- **Frontend**
+  - [React.js](https://react.dev/) — Component-based UI library for building interactive interfaces.
+  - [Vite](https://vitejs.dev/) — Fast frontend build tool and development server.
+  - [React Router](https://reactrouter.com/) — Client-side routing for single-page applications.
+  - [Axios](https://axios-http.com/) — Promise-based HTTP client for API requests.
+  - [Bootstrap](https://getbootstrap.com/) — Responsive CSS framework for styling.
+
+- **Backend**
+  - [Node.js](https://nodejs.org/) — JavaScript runtime for server-side development.
+  - [Express.js](https://expressjs.com/) — Web framework for building APIs and backend logic.
+  - [Mongoose](https://mongoosejs.com/) — MongoDB object modeling for Node.js.
+  - [bcrypt](https://www.npmjs.com/package/bcrypt) — Password hashing for secure authentication.
+  - [jsonwebtoken (JWT)](https://www.npmjs.com/package/jsonwebtoken) — Token-based user authentication and route protection[3].
+
+- **Database**
+  - [MongoDB](https://www.mongodb.com/) — NoSQL database for storing recipes, users, and related data.
+
+- **Deployment & DevOps**
+  - [Git](https://git-scm.com/) & [GitHub](https://github.com/) — Version control and collaboration.
+  - [Vercel](https://vercel.com/) — (Optional) Cloud platform for frontend deployment.
+  - [npm](https://www.npmjs.com/) — Package manager for JavaScript dependencies.
+
+**Key Architecture Highlights:**
+- Modular file organization for APIs, middleware, and image management.
+- Secure authentication and route protection using bcrypt and JWT.
+- Responsive, search-focused frontend with robust routing.
+
+---
+
 ## Getting Started
 
 ### Prerequisites
@@ -71,7 +151,9 @@ This project requires the following dependencies and tools:
 
 ---
 
-### Installation
+## Installation
+
+### Steps
 
 1. **Clone the repository**
    ```bash
@@ -86,3 +168,83 @@ This project requires the following dependencies and tools:
    ```bash
       cd ../frontend
       npm install
+4. Set up environment variables
+   Create a .env file in the backend directory and add:
+   ```env
+      PORT = 3000
+      MONGO_DB_USERNAME = your_mongoDB_username
+      MONGO_DB_PASSWD = your_mongoDB_password
+      MONGO_DB_ENDPOINT = your_mongoDB_endpoint
+      MONGO_DB_DATABASE = your_database_name
+      JWT_SECRET = your_jwt_secret_string
+      JWT_EXPIRY = your_jwt_expiry_time
+5. Start the backend server
+   ```bash
+      cd backend
+      npm start
+6. Start the frontend server
+   ```bash
+      cd ../frontend
+      npm start
+
+---
+
+## API Reference
+
+Below are the main API endpoints for the Recipe Sharing Platform backend. Each endpoint is briefly described for quick reference.
+
+---
+
+### **GET `/recipes/`**
+Fetch a paginated list of all recipes.  
+**Query Parameters:**  
+- `page` (optional): Page number (default: 1)  
+- `limit` (optional): Number of recipes per page (default: 10)
+
+---
+
+### **GET `/recipes/search`**
+Search for recipes by dish name (case-insensitive, partial matches allowed).  
+**Query Parameters:**  
+- `q` (required): The dish name to search for.
+
+---
+
+### **GET `/recipes/my`**
+Retrieve all recipes created by the authenticated user.  
+**Headers:**  
+- `Authorization: Bearer <JWT>`
+
+---
+
+### **POST `/recipes/`**
+Create a new recipe.  
+**Headers:**  
+- `Authorization: Bearer <JWT>`  
+**Body:**  
+- `dishName` (string, required)  
+- `timeTaken` (string/number, required)  
+- `ingredients` (array or comma-separated string, required)  
+- `process` (array or comma-separated string, required)
+
+---
+
+### **PATCH `/recipes/:id`**
+Update an existing recipe by its ID. Only provided fields will be updated.  
+**Headers:**  
+- `Authorization: Bearer <JWT>`  
+**Body:**  
+- Any of: `dishName`, `timeTaken`, `ingredients`, `process`
+
+---
+
+### **DELETE `/recipes/:id`**
+Delete a recipe by its ID.  
+**Headers:**  
+- `Authorization: Bearer <JWT>`
+
+---
+
+**Notes:**  
+- All endpoints return JSON responses.
+- Protected routes require a valid JWT token in the `Authorization` header.
