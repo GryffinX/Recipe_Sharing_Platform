@@ -15,11 +15,11 @@ app.use(cors({
     origin: '*'
 }));
 
+const PORT= process.env.PORT || 3000;
 
 mongoConnection();
 
 
-const PORT= process.env.PORT || 3000;
 
 app.use('/recipes',recipeRouter);
 app.use('/auth', authRouter);
