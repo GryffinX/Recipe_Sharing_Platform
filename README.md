@@ -25,13 +25,8 @@ A modern full stack web application for sharing, discovering, and managing recip
   - [Installation](#installation)
 - [API Reference](#api-reference)
 - [Site Walkthrough](#site-walkthrough)
-- [Directory Structure](#directory-structure)
-- [Contributing](#contributing)
-- [Roadmap](#roadmap)
-- [FAQ](#faq)
 - [License](#license)
 - [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -415,3 +410,11 @@ Each document in the `recipes` collection represents a recipe created by a user.
 ![IUser DB structure](screenshots/userDB.png "User DB structure")
 ---
 ![Recipes DB structure](screenshots/recipesDB.png "Recipes DB structure")
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
