@@ -85,6 +85,9 @@ This project streamlines recipe sharing and management with a focus on security,
 
 The Recipe Sharing Platform follows a clean separation of concerns with a modern full stack architecture:
 
+<p align="center">
+  <img src="screenshots/Flowchart.jpg" alt="Architecture Flowchart" width="500"/>
+</p>
 
 
 ---
