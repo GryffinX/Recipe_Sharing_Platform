@@ -24,7 +24,7 @@ A modern full stack web application for sharing, discovering, and managing recip
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [API Reference](#api-reference)
-- [Site Walkthrough](#screenshots--demos)
+- [Site Walkthrough](#site-walkthrough)
 - [Directory Structure](#directory-structure)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
