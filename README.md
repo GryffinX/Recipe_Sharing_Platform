@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img src="https://img.icons8.com/color/96/000000/chef-hat.png" width="100" alt="Chef Hat Logo"/>
+<img src="frontend/public/images/logo.jpg" width="100" alt="Chef Hat Logo"/>
 
 # BitBook
 
@@ -269,9 +269,3 @@ Below are wireframes and screenshots illustrating the main sections and user flo
 - **Delete Confirmation:** Dialog for confirming recipe deletion.
 
 ---
-
-### **How to Add More Screenshots**
-
-- Place your images in the `screenshots/` folder in your repository.
-- Use the following Markdown syntax to display them:
-
