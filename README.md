@@ -168,7 +168,8 @@ This project requires the following dependencies and tools:
    ```bash
       cd ../frontend
       npm install
-4. Set up environment variables
+4. Set up environment variables.
+   
    Create a .env file in the backend directory and add:
    ```env
       PORT = 3000
@@ -178,11 +179,11 @@ This project requires the following dependencies and tools:
       MONGO_DB_DATABASE = your_database_name
       JWT_SECRET = your_jwt_secret_string
       JWT_EXPIRY = your_jwt_expiry_time
-5. Start the backend server
+6. Start the backend server
    ```bash
       cd backend
       npm start
-6. Start the frontend server
+7. Start the frontend server
    ```bash
       cd ../frontend
       npm start
