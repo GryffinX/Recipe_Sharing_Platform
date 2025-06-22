@@ -345,4 +345,73 @@ When a user clicks the **Create Recipe** button, they are taken to a dedicated f
 
 _This intuitive and streamlined form makes it easy for users to contribute their favorite recipes, ensuring every submission is complete and well-structured._
 
+---
 
+## Database Structure
+The **BiteBook** application uses MongoDB to store all user and recipe data. The database consists of two main collections: **users** and **recipes**.
+
+---
+
+### 1. Users Collection
+
+Each document in the `users` collection represents a registered user of the platform.
+
+**Schema Fields:**
+- `username` (String, required, unique): The user’s display name.
+- `email` (String, required, unique): The user’s email address.
+- `password` (String, required): The user’s (hashed) password.
+- `createdAt` (Date, default: current date): The date the account was created.
+- `role` (String, enum: ['admin', 'user'], default: 'user'): User role for access control.
+
+**Example Document:**
+
+```bash
+   {
+  "_id": "64b7f1a2e1d3c4a5b6c7d8ea",
+  "username": "alice_wonder",
+  "email": "alice.wonder@example.com",
+  "password": "hashedpassword",
+  "createdAt": "2024-10-01T09:15:00.000Z",
+  "role": "user"
+  }
+```
+---
+
+### 2. Recipes Collection
+
+Each document in the `recipes` collection represents a recipe created by a user.
+
+**Schema Fields:**
+- `dishName` (String, required): The name of the dish.
+- `timeTaken` (String, required): Preparation/cooking time.
+- `ingredients` (Array of Strings, required): List of ingredients.
+- `process` (Array of Strings, required): Step-by-step cooking instructions.
+- `userID` (ObjectId, required, references `users`): The ID of the user who created the recipe.
+
+**Example Document:**
+
+```bash
+   {
+  "_id": "65c7f1a2e1d3c4a5b6c7d8eb",
+  "dishName": "Granola Practical",
+  "timeTaken": "35 minutes",
+  "ingredients": ["Cheese", "Bread", "Tomato", "Butter"],
+  "process": [
+  "Mix all ingredients in a bowl.",
+  "Bake at 180°C for 20 minutes.",
+  "Let it cool before serving."
+  ],
+  "userID": "64b7f1a2e1d3c4a5b6c7d8ea"
+  }
+```
+
+### Relationship
+
+- Each recipe references a user via the `userID` field, establishing a one-to-many relationship:  
+  **One user can create many recipes, but each recipe belongs to one user.**
+
+---
+
+![IUser DB structure](screenshots/userDB.png "User DB structure")
+---
+![Recipes DB structure](screenshots/recipesDB.png "Recipes DB structure")
