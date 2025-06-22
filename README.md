@@ -1,4 +1,3 @@
-
 <div align="center">
 
 <img src="frontend/public/images/logo.jpg" width="100" alt="Chef Hat Logo"/>
@@ -25,7 +24,7 @@ A modern full stack web application for sharing, discovering, and managing recip
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [API Reference](#api-reference)
-- [Screenshots & Demos](#screenshots--demos)
+- [Site Walkthrough](#screenshots--demos)
 - [Directory Structure](#directory-structure)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
@@ -249,7 +248,7 @@ Delete a recipe by its ID.
 
 ---
 
-## Screenshots & Demos
+## Site Walkthrough
 
 Below are wireframes and screenshots illustrating the main sections and user flows of BiteBook.
 
@@ -259,12 +258,91 @@ Below are wireframes and screenshots illustrating the main sections and user flo
 
 ![BiteBook Wireframe](screenshots/siteStructure.jpg "BiteBook Wireframe")
 
-**Description of Sections:**
-- **Main Feed:** Displays recipe cards with images, names, and preparation times.
-- **Recipe Detail:** Shows ingredients and a step-by-step process for a selected recipe.
-- **Signup/Login:** Forms for user authentication.
-- **User Dashboard ("My work"):** Allows users to create, edit, or delete their recipes.
-- **Recipe Creation/Editing:** Forms for entering recipe name, preparation time, ingredients, and steps.
-- **Delete Confirmation:** Dialog for confirming recipe deletion.
+### Homepage
+ 
+ ---
+ 
+![BiteBook Homepage](screenshots/Home_page.jpg "BiteBook Homepage")
+
+The **BiteBook homepage** welcomes users with a visually engaging feed of the latest and most popular recipes shared by the community. Key features of the homepage include:
+
+- **Recipe Feed:** Displays recipe cards with images, dish names, preparation times allowing users to quickly browse and discover new recipes.
+- **Search Bar:** Prominently placed at the top, enabling users to search for recipes by name.
+- **Navigation Menu:** Easy access to login, signup, user dashboard, and other core sections.
+- **Responsive Design:** The layout adapts seamlessly to both desktop and mobile devices, ensuring a smooth user experience for everyone.
+- **Call to Action:** Encourages visitors to join the community by signing up or sharing their own recipes.
+
+_This homepage serves as the gateway to BiteBook’s vibrant culinary community, making it easy for users to explore and get inspired right from the start._
 
 ---
+
+### Signup & Login Pages
+
+![Signup Page](screenshots/signup_page.jpg "BiteBook Signup Page")
+---
+![Login Page](screenshots/login_page.jpg "BiteBook Login Page")
+
+BiteBook provides secure and user-friendly authentication screens for both new and returning users:
+
+- **Signup Page:**  
+  Allows new users to create an account by providing essential details such as username, email, and password. Passwords are securely hashed using bcrypt, and the process is protected by validation to ensure data integrity.
+
+- **Login Page:**  
+  Enables registered users to log in with their credentials. Upon successful authentication, a JWT token is issued for secure, stateless session management. Middleware ensures that only authenticated users can access protected routes and features.
+
+_Both pages are designed for clarity and ease of use, with clear form fields, validation feedback, and responsive layouts for all devices._
+
+---
+
+### Recipe Card & Detail View
+
+![Recipe Card Detail](screenshots/recipe_card.jpg "Recipe Card Detail View")
+
+When a user presses the **View Recipe** button on a recipe card, they are taken to a detailed view showcasing all the information about the selected recipe:
+
+- **Recipe Image and Title:** A large, attractive image of the dish along with its name.
+- **Time Taken:** Information about the preparation time.
+- **Ingredients List:** Clearly presented, often as a checklist or bullet points for easy reference.
+- **Step-by-Step Process:** Detailed instructions to help users to create the recipe.
+- **Responsive Layout:** The detail view adapts to both desktop and mobile screens for optimal readability and interaction.
+
+_This immersive detail page ensures users have all the information they need to successfully recreate the recipe, while also enabling community interaction and content management._
+
+---
+
+### User Dashboard ("My Recipes")
+
+![User Dashboard - My Recipes](screenshots/myrecipes_page.jpg "User Dashboard - My Recipes Section")
+
+When a user presses the **My Recipes** button, they are taken to their personal dashboard. This section provides a centralized view and management panel for all recipes created by the user.
+
+**Key features of the User Dashboard:**
+- **Recipe List:** Displays all recipes authored by the user, each with options to view, edit, or delete.
+- **Quick Actions:** Buttons or icons for editing and deleting recipes directly from the dashboard.
+- **Create New Recipe:** Prominent button to add a new recipe, streamlining the content creation process.
+- **Responsive Layout:** Ensures usability and accessibility on both desktop and mobile devices.
+
+_The dashboard empowers users to efficiently manage their culinary contributions and maintain their personal collection on BiteBook._
+
+---
+
+### Creating a Recipe
+
+![Create Recipe Card](screenshots/recipe_creation_card.jpg "Create Recipe Card")
+---
+<p align="center">
+  <img src="screenshots/create_recipe_card.jpg" alt="Create Recipe Card Filled" title="Create Recipe Page" />
+</p>
+
+When a user clicks the **Create Recipe** button, they are taken to a dedicated form where they can add a new recipe to BiteBook.
+
+**Key features of the Create Recipe page:**
+- **Recipe Name:** Input field for the dish name.
+- **Preparation Time:** Specify the time required to make the dish.
+- **Ingredients:** Add ingredients as a list or by entering them as comma-separated values.
+- **Process/Steps:** Enter the cooking process as step-by-step instructions, either as a list or in separate fields for clarity.
+- **Submit Button:** Saves the new recipe to the user’s collection and makes it visible to the community.
+
+_This intuitive and streamlined form makes it easy for users to contribute their favorite recipes, ensuring every submission is complete and well-structured._
+
+
