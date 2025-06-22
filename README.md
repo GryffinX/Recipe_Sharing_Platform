@@ -24,7 +24,6 @@ A modern full stack web application for sharing, discovering, and managing recip
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Environment Variables](#environment-variables)
 - [Usage](#usage)
 - [API Reference](#api-reference)
 - [Screenshots & Demos](#screenshots--demos)
@@ -71,7 +70,7 @@ This project streamlines recipe sharing and management with a focus on security,
 - **Pagination:**  
   Browse recipes efficiently with paginated results for large collections.
 
-- **RESTful API:**  
+- **RESTful APIs:**  
   Well-structured endpoints for easy integration and scalability.
 
 - **Robust Input Validation:**  
@@ -86,15 +85,7 @@ This project streamlines recipe sharing and management with a focus on security,
 
 The Recipe Sharing Platform follows a clean separation of concerns with a modern full stack architecture:
 
-[ Client (React + Vite) ]
-|
-| (HTTP Requests via Axios)
-v
-[ Backend API (Node.js + Express) ]
-|
-| (Mongoose ODM)
-v
-[ MongoDB Database ]
+
 
 ---
 
@@ -196,7 +187,6 @@ This project requires the following dependencies and tools:
 
 Below are the main API endpoints for the Recipe Sharing Platform backend. Each endpoint is briefly described for quick reference.
 
----
 
 ### **GET `/recipes/`**
 Fetch a paginated list of all recipes.  
