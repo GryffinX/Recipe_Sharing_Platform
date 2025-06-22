@@ -84,6 +84,20 @@ exports.getRecipeByName = async (req, res) => {
     }
 };
 
+exports.getRecipesByIngredients = async (req, res) => {
+  try {
+    const { ingredients } = req.query;
+    if (!ingredients) {
+      return res.status(400).json({ message: "Ingredients query parameter is required." });
+    }
+    const ingredientList = ingredients.split(',').map(i => i.trim());
+    const recipes = await Recipes.find({ ingredients: { $all: ingredientList } });
+    res.status(200).json({ recipes });
+  } catch (error) {
+    res.status(500).json({ message: "Error searching recipes by ingredients", error });
+  }
+};
+
 exports.getUserRecipes = async (req, res) => {
     try {
         const userID= req.user.id;

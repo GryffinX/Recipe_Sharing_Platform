@@ -6,6 +6,8 @@ recipeRouter.get('/', recipeController.getAllRecipes);
 
 recipeRouter.get('/search', recipeController.getRecipeByName);
 
+recipeRouter.get('/searchByIngredients', recipeController.getRecipesByIngredients);
+
 recipeRouter.get('/my', authenticate, recipeController.getUserRecipes);
 
 recipeRouter.post('/', authenticate, recipeController.createRecipe);

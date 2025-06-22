@@ -12,6 +12,7 @@ export default function RecipesView() {
     const navigate = useNavigate();
     const [Recipes, setRecipes] = useState([]);
     const [currentRecipe, setCurrentRecipe] = useState(null);
+    const [searchType, setSearchType] = useState("name");
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredRecipes, setFilteredRecipes] = useState([]);
     const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -42,12 +43,32 @@ export default function RecipesView() {
 
     }, [])
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault();
-        const results = Recipes.filter((recipe) =>
-            recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setFilteredRecipes(results);
+        if (searchType === "name"){
+            try{
+                const response = await axios.get('/recipes/search', {
+                    params: { dishName: searchQuery }
+                });
+                setFilteredRecipes(response.data.recipes);
+            } catch (error) {
+                alert("Search failed");
+            }
+        } else if (searchType === "ingredients") {
+        
+            try {
+                const response = await axios.get('/recipes/searchByIngredients', {
+                    params: { ingredients: searchQuery }
+                });
+                setFilteredRecipes(response.data.recipes);
+            } catch (error) {
+                alert("Search failed");
+            }
+        }
+        // const results = Recipes.filter((recipe) =>
+        //     recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+        // );
+        // setFilteredRecipes(results);
     };
 
 
@@ -81,15 +102,29 @@ export default function RecipesView() {
             <div className='navHeader'>
                 <img className='logo' src="./public/images/logo.jpg" alt="logo" />
                 <h1>Bite Book</h1>
+
+                <select
+                        className="searchTypeDropdown"
+                        value={searchType}
+                        onChange={e => setSearchType(e.target.value)}
+                        style={{ height: "32px", marginLeft: "8px" }}
+                    >
+                        <option value="name">Search by Recipe Name</option>
+                        <option value="ingredients">Search by Ingredients</option>
+                </select>
+                
                 <div className='searchContainer'>
                     <input
                         className="search"
                         type="text"
-                        placeholder='Search for recipe'
+                        placeholder={
+                            searchType === "name"
+                                ? "Search for recipe"
+                                : "Search by ingredients (comma separated)"
+                        }
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-
                     <button className='searchButton' onClick={handleSearch}>
                         <img className='searchButton' src="./public/images/search.jpg" alt="search" />
                     </button>
