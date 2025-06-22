@@ -137,7 +137,9 @@ The Recipe Sharing Platform is built using a modern, modular stack for scalabili
 
 This project requires the following dependencies and tools:
 
-- **Programming Language:** JavaScript <img src="https://img.icons8.com/color/48/000000/javascript--v1.png" width="20"/>
+- **JavaScript** <img src="https://img.icons8.com/color/48/000000/javascript--v1.png" width="20"/>
+- **HTML** — Structure and markup for web pages <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" width="22" alt="HTML5"/>
+- **CSS** — Styling and layout for web pages <img src="https://img.icons8.com/color/48/000000/css3.png" width="22" alt="CSS3"/>
 - **Frontend Framework:** React.js (with Vite) <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="20"/> <img src="https://vitejs.dev/logo.svg" width="20"/>
 - **Backend Framework:** Express.js <img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg" width="20"/>
 - **Authentication:** JWT (jsonwebtoken)
