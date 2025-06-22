@@ -24,7 +24,6 @@ A modern full stack web application for sharing, discovering, and managing recip
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
 - [API Reference](#api-reference)
 - [Screenshots & Demos](#screenshots--demos)
 - [Directory Structure](#directory-structure)
@@ -39,9 +38,9 @@ A modern full stack web application for sharing, discovering, and managing recip
 
 ## Overview
 
-Recipe Sharing Platform is a full-stack web application designed to empower users to discover, share, and manage culinary recipes in a community-driven environment. Built with a React frontend and a Node.js backend, it offers a seamless experience for recipe exploration and collaboration.
+BitBook is a full-stack web application designed to empower users to discover, share, and manage culinary recipes in a community-driven environment. Built with a React frontend and a Node.js backend, it offers a seamless experience for recipe exploration and collaboration.
 
-### Why Recipe Sharing Platform?
+### Why BitBook?
 
 This project streamlines recipe sharing and management with a focus on security, scalability, and user engagement. The core features include:
 
@@ -83,10 +82,10 @@ This project streamlines recipe sharing and management with a focus on security,
 
 ## Architecture
 
-The Recipe Sharing Platform follows a clean separation of concerns with a modern full stack architecture:
+BitBook follows a clean separation of concerns with a modern full stack architecture:
 
 <p align="center">
-  <img src="screenshots/Flowchart.jpg" alt="Architecture Flowchart" width="500"/>
+  <img src="screenshots/Flowchart.png" alt="Architecture Flowchart" width="500"/>
 </p>
 
 
@@ -94,7 +93,7 @@ The Recipe Sharing Platform follows a clean separation of concerns with a modern
 
 ## Tech Stack
 
-The Recipe Sharing Platform is built using a modern, modular stack for scalability and maintainability:
+BitBook is built using a modern, modular stack for scalability and maintainability:
 
 - **Frontend**
   - [React.js](https://react.dev/) — Component-based UI library for building interactive interfaces.
@@ -141,6 +140,8 @@ This project requires the following dependencies and tools:
 - **Node.js:** v14+ <img src="https://img.icons8.com/color/48/000000/nodejs.png" width="20"/>
 - **MongoDB:** <img src="https://img.icons8.com/color/48/000000/mongodb.png" width="20"/>
 - **Git:** <img src="https://img.icons8.com/color/48/000000/git.png" width="20"/>
+- **nodemon** 
+  - (Optional, for development) Automatically restarts the backend server on code changes.
 
 *Optional for Deployment:*
 - **Vercel Account & CLI** (for deployment) <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" width="20"/>
@@ -179,16 +180,18 @@ This project requires the following dependencies and tools:
    ```bash
       cd backend
       npm start
+      (or) npm run dev
 7. Start the frontend server
    ```bash
       cd ../frontend
       npm start
+      (or) npm run dev
 
 ---
 
 ## API Reference
 
-Below are the main API endpoints for the Recipe Sharing Platform backend. Each endpoint is briefly described for quick reference.
+Below are the main API endpoints for BitBook's backend. Each endpoint is briefly described for quick reference.
 
 
 ### **GET `/recipes/`**
@@ -244,3 +247,31 @@ Delete a recipe by its ID.
 **Notes:**  
 - All endpoints return JSON responses.
 - Protected routes require a valid JWT token in the `Authorization` header.
+
+---
+
+## Screenshots & Demos
+
+Below are wireframes and screenshots illustrating the main sections and user flows of BitBook.
+
+---
+
+### **Platform Structure & UI Flow**
+
+![BitBook Wireframe](screenshots/siteStructure.jpg "BitBook Wireframe")
+
+**Description of Sections:**
+- **Main Feed:** Displays recipe cards with images, names, and preparation times.
+- **Recipe Detail:** Shows ingredients and a step-by-step process for a selected recipe.
+- **Signup/Login:** Forms for user authentication.
+- **User Dashboard ("My work"):** Allows users to create, edit, or delete their recipes.
+- **Recipe Creation/Editing:** Forms for entering recipe name, preparation time, ingredients, and steps.
+- **Delete Confirmation:** Dialog for confirming recipe deletion.
+
+---
+
+### **How to Add More Screenshots**
+
+- Place your images in the `screenshots/` folder in your repository.
+- Use the following Markdown syntax to display them:
+
