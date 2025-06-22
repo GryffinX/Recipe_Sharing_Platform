@@ -3,7 +3,7 @@
 
 <img src="https://img.icons8.com/color/96/000000/chef-hat.png" width="100" alt="Chef Hat Logo"/>
 
-# Recipe Sharing Platform
+# BitBook
 
 *Cook, Share, Inspire — Your Culinary Community Awaits*
 
