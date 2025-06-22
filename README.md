@@ -3,7 +3,7 @@
 
 <img src="frontend/public/images/logo.jpg" width="100" alt="Chef Hat Logo"/>
 
-# BitBook
+# BiteBook
 
 *Cook, Share, Inspire — Your Culinary Community Awaits*
 
@@ -38,9 +38,9 @@ A modern full stack web application for sharing, discovering, and managing recip
 
 ## Overview
 
-BitBook is a full-stack web application designed to empower users to discover, share, and manage culinary recipes in a community-driven environment. Built with a React frontend and a Node.js backend, it offers a seamless experience for recipe exploration and collaboration.
+BiteBook is a full-stack web application designed to empower users to discover, share, and manage culinary recipes in a community-driven environment. Built with a React frontend and a Node.js backend, it offers a seamless experience for recipe exploration and collaboration.
 
-### Why BitBook?
+### Why BiteBook?
 
 This project streamlines recipe sharing and management with a focus on security, scalability, and user engagement. The core features include:
 
@@ -82,7 +82,7 @@ This project streamlines recipe sharing and management with a focus on security,
 
 ## Architecture
 
-BitBook follows a clean separation of concerns with a modern full stack architecture:
+BiteBook follows a clean separation of concerns with a modern full stack architecture:
 
 <p align="center">
   <img src="screenshots/Flowchart.png" alt="Architecture Flowchart" width="500"/>
@@ -93,7 +93,7 @@ BitBook follows a clean separation of concerns with a modern full stack architec
 
 ## Tech Stack
 
-BitBook is built using a modern, modular stack for scalability and maintainability:
+BiteBook is built using a modern, modular stack for scalability and maintainability:
 
 - **Frontend**
   - [React.js](https://react.dev/) — Component-based UI library for building interactive interfaces.
@@ -190,7 +190,7 @@ This project requires the following dependencies and tools:
 
 ## API Reference
 
-Below are the main API endpoints for BitBook's backend. Each endpoint is briefly described for quick reference.
+Below are the main API endpoints for BiteBook's backend. Each endpoint is briefly described for quick reference.
 
 
 ### **GET `/recipes/`**
@@ -251,13 +251,13 @@ Delete a recipe by its ID.
 
 ## Screenshots & Demos
 
-Below are wireframes and screenshots illustrating the main sections and user flows of BitBook.
+Below are wireframes and screenshots illustrating the main sections and user flows of BiteBook.
 
 ---
 
 ### **Platform Structure & UI Flow**
 
-![BitBook Wireframe](screenshots/siteStructure.jpg "BitBook Wireframe")
+![BiteBook Wireframe](screenshots/siteStructure.jpg "BiteBook Wireframe")
 
 **Description of Sections:**
 - **Main Feed:** Displays recipe cards with images, names, and preparation times.
