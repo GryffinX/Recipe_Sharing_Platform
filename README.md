@@ -269,9 +269,3 @@ Below are wireframes and screenshots illustrating the main sections and user flo
 - **Delete Confirmation:** Dialog for confirming recipe deletion.
 
 ---
-
-### **How to Add More Screenshots**
-
-- Place your images in the `screenshots/` folder in your repository.
-- Use the following Markdown syntax to display them:
-
