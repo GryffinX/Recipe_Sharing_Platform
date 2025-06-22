@@ -100,7 +100,6 @@ BitBook is built using a modern, modular stack for scalability and maintainabili
   - [Vite](https://vitejs.dev/) — Fast frontend build tool and development server.
   - [React Router](https://reactrouter.com/) — Client-side routing for single-page applications.
   - [Axios](https://axios-http.com/) — Promise-based HTTP client for API requests.
-  - [Bootstrap](https://getbootstrap.com/) — Responsive CSS framework for styling.
 
 - **Backend**
   - [Node.js](https://nodejs.org/) — JavaScript runtime for server-side development.
