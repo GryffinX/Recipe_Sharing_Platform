@@ -77,7 +77,7 @@ export default function MyWorkView() {
                 authorization: `Bearer ${token}`,
             };
 
-            await axios.delete(`${import.meta.env.VITE_API_URL}/recipes/${recipe_id}`, { headers });
+            await axios.delete(`${import.meta.env.VITE_API_URL}/recipes/${recipe._id}`, { headers });
             setRecipe(prev => prev.filter(r => r._id !== recipe._id))
         } catch (error) {
             console.error("Error in deleting: ", error);
