@@ -12,7 +12,7 @@ export default function SignUp() {
     
     const handleSignUp= (e) => {
         e.preventDefault();
-         axios.post("http://localhost:3000/auth/signup",{ username, email, password })
+        axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, { username, email, password })
             .then(async (res) => {
                 if(res?.data?.message === "Successfully registered new user"){
                     alert("Signup Successful");

@@ -29,7 +29,7 @@ export default function RecipesView() {
                 data.recipes.forEach((element) => {
                     tempRecipes.push({ id: element.id, name: element.name, preparationTime: element.preparationTime, ingredients: element.ingredients, process: element.process, image: element.image })
                 });
-                fetch("http://localhost:3000/recipes")
+                fetch(`${import.meta.env.VITE_API_URL}/recipes`)
                     .then(async (res) => {
                         const data = await res.json();
                         data.recipes.forEach((element) => {
