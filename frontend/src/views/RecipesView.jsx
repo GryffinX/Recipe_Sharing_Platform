@@ -33,7 +33,7 @@ export default function RecipesView() {
                     .then(async (res) => {
                         const data = await res.json();
                         data.recipes.forEach((element) => {
-                            tempRecipes.push({ id: element._id, name: element.dishName, preparationTime: element.timeTaken, ingredients: element.ingredients, process: element.process, image: "/public/images/Dummy.jpeg" })
+                            tempRecipes.push({ id: element._id, name: element.dishName, preparationTime: element.timeTaken, ingredients: element.ingredients, process: element.process, image: "/images/Dummy.jpeg" })
                         });
                         setRecipes(tempRecipes);
                     })
