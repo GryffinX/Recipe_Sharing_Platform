@@ -4,30 +4,34 @@ const jwt=require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
     try {
-        const newUser = req.body;
-        const takenUserEmail = await User.findOne({ email: {
-            $regex: new RegExp(newUser.email, 'i')
-        }});
-        const takenUsername = await User.findOne({ username:{
-            $regex: new RegExp(newUser.username, 'i')
-        }});
-        if (takenUserEmail || takenUsername) {
+        const { username, email, password } = req.body;
+        if (!username || !email || !password) {
+            return res.status(400).send({ error: 'All fields required' });
+        }
+        const existingUser = await User.findOne({
+            $or: [
+                { email: { $regex: `^${email}$`, $options: 'i' } },
+                { username: { $regex: `^${username}$`, $options: 'i' } }
+            ]
+        });
+        if (existingUser) {
             return res.status(409).send({ error: 'Username or Email already registered' });
         }
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(newUser.password, salt)
+        const hashedPassword = await bcrypt.hash(password, salt);
         const user = new User({
-            username: newUser.username,
-            email: newUser.email,
+            username,
+            email,
             password: hashedPassword
-        })
-        await user.save()
-        return res.status(201).send({ message: 'Successfully registered new user', user: {id: user._id, username: user.username}});
+        });
+        await user.save();
+        return res.status(201).send({ message: 'Successfully registered new user', user: { id: user._id, username: user.username } });
     } catch (error) {
-        console.error('Error registering user:', error.message);
-        return res.status(500).send({ error: 'Error registering user' });
+        console.error('Error registering user:', error);
+        return res.status(500).send({ error: 'Error registering user', details: error.message });
     }
 }
+
 
 exports.login = async (req, res) => {
     const user = req.body;

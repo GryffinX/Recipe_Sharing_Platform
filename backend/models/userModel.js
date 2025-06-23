@@ -18,12 +18,14 @@ const userSchema= new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        required: false
     },
     role: {
         type: String,
         enum: ['admin', 'user'],
-        default: 'user'
+        default: 'user',
+        required: false
     }
 })
 
