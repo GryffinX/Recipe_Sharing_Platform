@@ -6,7 +6,9 @@
 
 *Cook, Share, Inspire — Your Culinary Community Awaits*
 
-**TEAM_ID:** `nH5bh4-kyTIS37VlTtAoe`
+**TEAM ID:** `nH5bh4-kyTIS37VlTtAoe`
+
+**APP LINK:** <a href="https://bitebook-nine.vercel.app">BiteBook
 
 </div>
 
