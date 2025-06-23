@@ -42,8 +42,8 @@ export default function MyWorkView() {
             try {
                
                 const config = getConfig();
-                const res = await axios.get('/recipes/my', config);
-                    setRecipe(res?.data?.recipes || []);
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/recipes/my`, config);
+                setRecipe(res?.data?.recipes || []);
             } catch (error) {
                 console.error('Failed to show recipes: ', error.message);
                 setRecipe([]);
@@ -77,7 +77,7 @@ export default function MyWorkView() {
                 authorization: `Bearer ${token}`,
             };
 
-            await axios.delete(`/recipes/${recipe._id}`, { headers });
+            await axios.delete(`${import.meta.env.VITE_API_URL}/recipes/${recipe_id}`, { headers });
             setRecipe(prev => prev.filter(r => r._id !== recipe._id))
         } catch (error) {
             console.error("Error in deleting: ", error);
@@ -110,13 +110,13 @@ export default function MyWorkView() {
 
 
             if (currentRecipe && currentRecipe._id) {
-                const res = await axios.patch(`/recipes/${currentRecipe._id}`, payload, config);
+                const res = await axios.patch(`${import.meta.env.VITE_API_URL}/recipes/${currentRecipe._id}`, payload, config);
                 const updatedRecipe = res.data.updatedRecipe;
                 
                 setRecipe(prev => prev.map(r => r._id === updatedRecipe._id ? updatedRecipe : r));
                 setCurrentRecipe(null);
             } else {
-                const res = await axios.post('/recipes', payload, config);
+                const res = await axios.post(`${import.meta.env.VITE_API_URL}/recipes`, payload, config);
                 console.log('New recipe response:', res.data);
                 const newRecipe = res.data.newRecipe;
                 setRecipe(prev => [...prev, newRecipe])
