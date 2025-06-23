@@ -23,7 +23,7 @@ export default function RecipesView() {
 
     useEffect(() => {
         let tempRecipes = [];
-        fetch("/public/Data.json")
+        fetch("/Data.json")
             .then(async (res) => {
                 const data = await res.json();
                 data.recipes.forEach((element) => {
@@ -95,7 +95,7 @@ export default function RecipesView() {
     return (
         <>
             <div className='navHeader'>
-                <img className='logo' src="./public/images/logo.jpg" alt="logo" />
+                <img className='logo' src="/images/logo.jpg" alt="logo" />
                 <h1>Bite Book</h1>
                 <div className='searchContainer'>
                     <input
@@ -107,7 +107,7 @@ export default function RecipesView() {
                     />
 
                     <button className='searchButton' onClick={handleSearch}>
-                        <img className='searchButton' src="./public/images/search.jpg" alt="search" />
+                        <img className='searchButton' src="/images/search.jpg" alt="search" />
                     </button>
 
 

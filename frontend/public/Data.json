@@ -2,7 +2,7 @@
   "recipes": [
     {
       "id" : "1",
-      "image": "/public/images/spaghetti.jpg",
+      "image": "/images/spaghetti.jpg",
       "name": "Spaghetti Bolognese",
       "preparationTime": "30 minutes",
       "ingredients": "Spaghetti, ground beef, tomato sauce, onions, garlic, olive oil, salt, pepper",
@@ -10,7 +10,7 @@
     },
     {
       "id" : "2",
-      "image": "/public/images/Pancakes.jpeg",
+      "image": "/images/Pancakes.jpeg",
       "name": "Classic Pancakes",
       "preparationTime": "20 minutes",
       "ingredients": "Flour, eggs, milk, baking powder, sugar, butter, salt",
@@ -18,7 +18,7 @@
     },
     {
       "id" : "3",
-      "image": "/public/images/chickenCurry.jpeg",
+      "image": "/images/chickenCurry.jpeg",
       "name": "Chicken Curry",
       "preparationTime": "45 minutes",
       "ingredients": "Chicken, onions, tomatoes, garlic, ginger, spices, oil, salt",
@@ -26,7 +26,7 @@
     },
     {
       "id" : "4",
-      "image": "/public/images/FreshVegetableSalad.jpg",
+      "image": "/images/FreshVegetableSalad.jpg",
       "name": "Fresh Vegetable Salad",
       "preparationTime": "10 minutes",
       "ingredients": "Lettuce, tomatoes, cucumbers, carrots, olive oil, lemon juice, salt, pepper",
@@ -34,7 +34,7 @@
     },
     {
       "id" : "5",
-      "image": "/public/images/VegetableFriedRice.jpeg",
+      "image": "/images/VegetableFriedRice.jpeg",
       "name": "Vegetable Fried Rice",
       "preparationTime": "25 minutes",
       "ingredients": "Cooked rice, carrots, peas, bell peppers, soy sauce, garlic, oil",
@@ -42,7 +42,7 @@
     },
     {
       "id" : "6",
-      "image": "/public/images/ChocolateCake.jpg",
+      "image": "/images/ChocolateCake.jpg",
       "name": "Chocolate Cake",
       "preparationTime": "1 hour",
       "ingredients": "Flour, cocoa powder, eggs, sugar, butter, baking powder, milk",
