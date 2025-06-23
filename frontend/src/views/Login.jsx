@@ -14,6 +14,11 @@ export default function Login() {
         axios.post("http://localhost:3000/auth/login", { email, password })
             .then(async (res) => {
                 if (res?.data?.message === "Successfully logged in") {
+                    const user = {
+                        token: res.data.accessToken,
+                        user: res.data.user,
+                    };
+                    localStorage.setItem('user', JSON.stringify(user));
                     localStorage.setItem("user-access-token", res?.data?.accessToken);
                     alert("Login Successful");
                     navigate('/');

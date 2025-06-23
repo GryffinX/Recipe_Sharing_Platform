@@ -16,25 +16,39 @@ export default function MyWorkView() {
     const [modalType, setModalType] = useState('create')
     const [currentRecipe, setCurrentRecipe] = useState(null)
 
+    const getUser = () => {
+        const userStr = localStorage.getItem('user');
+        return userStr ? JSON.parse(userStr) : null;
+    };   
+    const getConfig = () => {
+        const user = getUser();
+        return {
+             headers: {
+                        Authorization: `Bearer ${user.token || ''}`,
+             },
+        };
+    };
+
     useEffect(() => {
+        
         const getSpecificRecipes = async () => {
-            try {
-                const token = localStorage.getItem("user-access-token");
-
-                const config = {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                };
-                const res = await axios.get('/recipes', config);
-
-                if (res?.data) {
-                    setRecipe(res?.data?.recipes)
+            const user = getUser();
+             
+                if(!user?.token) {
+                    setRecipe([]);
+                    return;
                 }
+
+            try {
+               
+                const config = getConfig();
+                const res = await axios.get('/recipes/my', config);
+                    setRecipe(res?.data?.recipes || []);
             } catch (error) {
                 console.error('Failed to show recipes: ', error.message);
+                setRecipe([]);
             }
-        }
+        };
         getSpecificRecipes();
     }, []);
 
