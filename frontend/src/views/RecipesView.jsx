@@ -15,6 +15,9 @@ export default function RecipesView() {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredRecipes, setFilteredRecipes] = useState([]);
     const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const recipesPerPage = 10;
+
 
 
 
@@ -75,6 +78,19 @@ export default function RecipesView() {
         setUserLoggedIn(false);
     }
 
+    const indexOfLastRecipe = currentPage * recipesPerPage;
+    const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+    const currentRecipes = (searchQuery ? filteredRecipes : Recipes).slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+    const handleNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+    };
+
+    const handlePrevPage = () => {
+        setCurrentPage((prev) => prev - 1);
+    };
+
+
 
     return (
         <>
@@ -104,24 +120,24 @@ export default function RecipesView() {
             </div>
             <div className='recipeContainer'>
                 {
-                    searchQuery ? (
-                        filteredRecipes.length > 0 ? (
-                            filteredRecipes.map((item, index) => (
-                                <RecipeCard key={index} recipe={item} onView={handleViewRecipe} />
-                            ))
-                        ) : (
-                            <p className="notFound">No recipes found.</p>
-                        )
-                    ) : (
-                        Recipes.map((item, index) => (
+                    currentRecipes.length > 0 ? (
+                        currentRecipes.map((item, index) => (
                             <RecipeCard key={index} recipe={item} onView={handleViewRecipe} />
                         ))
+                    ) : (
+                        <p className="notFound">No recipes found.</p>
                     )
                 }
-
-
-
             </div>
+            <div className="paginationControls">
+                {currentPage > 1 && (
+                    <button onClick={handlePrevPage} className="paginationButton">← Prev</button>
+                )}
+                {indexOfLastRecipe < (searchQuery ? filteredRecipes.length : Recipes.length) && (
+                    <button onClick={handleNextPage} className="paginationButton">Next →</button>
+                )}
+            </div>
+
             {currentRecipe && <RecipeViewCard key={currentRecipe.name} recipe={currentRecipe} onBack={() => setCurrentRecipe(null)} />}
         </>
     )
