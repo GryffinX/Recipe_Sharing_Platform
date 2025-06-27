@@ -85,22 +85,24 @@ export default function MyWorkView() {
     };
 
     const handleSubmit = async () => {
+    if (!recipeName || !recipeTime || !recipeIngredients || !recipeSteps) {
+        alert("All fields are required.");
+        return;
+    }
 
-        if (!recipeName || !recipeTime || !recipeIngredients || !recipeSteps) {
-            alert("All fields are required.");
-            return;
-        }
+    // Convert to arrays if needed by backend
+    const payload = {
+        dishName: recipeName,
+        timeTaken: recipeTime,
+        ingredients: recipeIngredients.split(',').map(i => i.trim()),
+        process: recipeSteps.split(',').map(s => s.trim()),
+    };
 
-        const payload = {
-            dishName: recipeName,
-            timeTaken: recipeTime,
-            ingredients: recipeIngredients,
-            process: recipeSteps,
-        };
-
-        try {
-
-            const token = localStorage.getItem('user-access-token');
+    try {
+        // Get token from user object in localStorage
+        const userStr = localStorage.getItem('user');
+        const user = userStr ? JSON.parse(userStr) : null;
+        const token = user?.token || '';
 
         const config = {
             headers: {
@@ -108,32 +110,53 @@ export default function MyWorkView() {
             },
         };
 
+        console.log('Payload:', payload);
+        console.log('Config:', config);
 
-            if (currentRecipe && currentRecipe._id) {
-                const res = await axios.patch(`${import.meta.env.VITE_API_URL}/recipes/${currentRecipe._id}`, payload, config);
-                const updatedRecipe = res.data.updatedRecipe;
-                
-                setRecipe(prev => prev.map(r => r._id === updatedRecipe._id ? updatedRecipe : r));
-                setCurrentRecipe(null);
-            } else {
-                const res = await axios.post(`${import.meta.env.VITE_API_URL}/recipes`, payload, config);
-                console.log('New recipe response:', res.data);
-                const newRecipe = res.data.newRecipe;
-                setRecipe(prev => [...prev, newRecipe])
-            }
-
-            
-            setRecipeName('');
-            setRecipeTime('');
-            setRecipeIngredients('');
-            setRecipeSteps('');
+        if (currentRecipe && currentRecipe._id) {
+            const res = await axios.patch(`${import.meta.env.VITE_API_URL}/recipes/${currentRecipe._id}`, payload, config);
+            const updatedRecipe = res.data.updatedRecipe;
+            setRecipe(prev => prev.map(r => r._id === updatedRecipe._id ? updatedRecipe : r));
             setCurrentRecipe(null);
-            setShowModal(false);
-
-        } catch (error) {
-            console.error('Submit failed: ', error);
+        } else {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/recipes`, payload, config);
+            console.log('New recipe response:', res.data);
+            const newRecipe = res.data.newRecipe;
+            setRecipe(prev => [...prev, newRecipe]);
         }
+
+        setRecipeName('');
+        setRecipeTime('');
+        setRecipeIngredients('');
+        setRecipeSteps('');
+        setCurrentRecipe(null);
+        setShowModal(false);
+
+    } catch (error) {
+        // Log all possible error details for debugging
+        console.error('Submit failed:', error);
+        console.error('error.response:', error.response);
+        console.error('error.response.data:', error.response?.data);
+        console.error('error.message:', error.message);
+
+        // Try to extract a meaningful error message
+        let errorMsg = 'Unknown error';
+        if (error.response) {
+            // Try various places for error message
+            errorMsg =
+                error.response.data?.message ||
+                error.response.data?.error ||
+                error.response.data?.detail ||
+                JSON.stringify(error.response.data) ||
+                error.response.statusText ||
+                error.message;
+        } else {
+            errorMsg = error.message;
+        }
+        alert('Error: ' + errorMsg);
     }
+};
+
 
     const handleRecipes = () => {
         navigate('/');
